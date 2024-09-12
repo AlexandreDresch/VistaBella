@@ -7,6 +7,11 @@ export default {
         merriweather: "Merriweather",
         opensans: "Open Sans",
       },
+      colors: {
+        primary: "#1C3988",
+        secondary: "#F3F3FA",
+        primaryText: "#141B2D",
+      },
     },
   },
   plugins: [],
