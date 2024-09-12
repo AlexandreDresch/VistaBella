@@ -7,6 +7,6 @@
       @apply box-border;
     }
     body {
-      @apply bg-white;
+      @apply bg-white text-primaryText;
     }
   }
