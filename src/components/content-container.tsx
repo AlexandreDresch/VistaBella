@@ -1,6 +1,6 @@
 interface ContentContainerProps {
   title?: string;
-  content: string[];
+  content: string[] | string;
 }
 export default function ContentContainer({
   title,
@@ -12,11 +12,17 @@ export default function ContentContainer({
         <h3 className="font-merriweather text-lg font-bold">{title}</h3>
       )}
 
-      {content.map((paragraph, index) => (
-        <p className="font-opensans text-base font-normal" key={index}>
-          {paragraph}
-        </p>
-      ))}
+      {Array.isArray(content) ? (
+        <>
+          {content.map((paragraph, index) => (
+            <p className="font-opensans text-base font-normal" key={index}>
+              {paragraph}
+            </p>
+          ))}
+        </>
+      ) : (
+        <p className="font-opensans text-base font-normal">{content}</p>
+      )}
     </div>
   );
 }
