@@ -14,7 +14,7 @@ export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
 
   return (
     <div className="flex w-full flex-col">
-      <div className="flex h-96 w-full max-w-3xl items-center justify-center bg-red-500">
+      <div className="flex h-96 w-full max-w-3xl items-center justify-center bg-secondary">
         <img
           src={selectedImage}
           alt={name}
