@@ -1,21 +1,22 @@
 import Badge from "../components/badge";
 import ContentContainer from "../components/content-container";
 import ImageSlider from "../components/image-slider";
+import Map from "../components/map";
 import { realEstateMockData } from "../constants/real-state";
 import { formatToBRL, translatePropertyType } from "../utils/utils";
 
 export default function EstateDetails() {
   const estateData: RealEstate = realEstateMockData[0];
   return (
-    <div className="flex justify-center px-40 py-20">
-      <main className="flex w-2/3 flex-col space-y-10">
-        <h1 className="font-merriweather text-3xl font-bold">
+    <div className="flex justify-center px-5 py-10 sm:px-10 md:px-20 lg:px-40 lg:py-20">
+      <main className="flex w-full flex-col space-y-10 lg:w-2/3">
+        <h1 className="font-merriweather text-lg font-bold md:text-2xl lg:text-3xl">
           {estateData.title}
         </h1>
 
         <ImageSlider name={estateData.title} imageUrls={estateData.images} />
 
-        <section className="w-full max-w-3xl space-y-10">
+        <section className="w-full max-w-3xl space-y-5 lg:space-y-10">
           <div className="flex w-full justify-between">
             <Badge
               icon="./icons/company.svg"
@@ -30,7 +31,7 @@ export default function EstateDetails() {
             <Badge icon="./icons/pin.svg" description={estateData.location} />
           </div>
 
-          <div className="bg-secondary flex justify-between rounded-md p-4">
+          <div className="flex justify-between rounded-md bg-secondary p-2 text-sm sm:p-4 md:text-base">
             <div className="font-opensans">
               <p>
                 {estateData.type === "rent" ? "Aluguel " : "Preço "}partindo de:
@@ -41,7 +42,7 @@ export default function EstateDetails() {
               </p>
             </div>
 
-            <button className="bg-primary hover:bg-primary/95 rounded-md px-4 font-bold text-white transition-opacity">
+            <button className="rounded-md bg-primary px-2 font-bold text-white transition-opacity hover:bg-primary/95 sm:px-4">
               <span>Tenho interesse</span>
             </button>
           </div>
@@ -73,8 +74,16 @@ export default function EstateDetails() {
             content={estateData.propertyOpinion}
           />
         </section>
+
+        <section className="flex max-w-3xl">
+          <Map
+            position={estateData.map}
+            title={estateData.title}
+            details={estateData.amenities}
+          />
+        </section>
       </main>
-      <aside className="w-1/3 bg-secondary"></aside>
+      <aside className="hidden w-1/3 bg-secondary lg:flex"></aside>
     </div>
   );
 }
