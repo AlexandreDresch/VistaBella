@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface ImageSliderProps {
   name: string;
@@ -7,10 +7,48 @@ interface ImageSliderProps {
 
 export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
   const [selectedImage, setSelectedImage] = useState(imageUrls[0]);
+  const [isLeftDisabled, setIsLeftDisabled] = useState(true);
+  const [isRightDisabled, setIsRightDisabled] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   function handleImageChange(image: string) {
     setSelectedImage(image);
   }
+
+  function scrollLeft() {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -200, behavior: "smooth" });
+    }
+  }
+
+  function scrollRight() {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 200, behavior: "smooth" });
+    }
+  }
+
+  function handleScroll() {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
+
+      setIsLeftDisabled(scrollLeft === 0);
+
+      setIsRightDisabled(scrollLeft + clientWidth >= scrollWidth);
+    }
+  }
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+
+      return () => {
+        scrollContainer.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
 
   return (
     <div className="flex w-full flex-col">
@@ -22,21 +60,50 @@ export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
         />
       </div>
 
-      <div className="md:[&::-webkit-scrollbar-thumb]:bg-accent mt-8 flex w-full max-w-3xl gap-4 overflow-x-auto md:overflow-x-scroll md:[&::-webkit-scrollbar-thumb]:rounded-lg [&::-webkit-scrollbar]:invisible">
-        {imageUrls.map((image) => (
-          <button
-            key={image}
-            className="flex h-[100px] items-center justify-center"
-            onClick={() => handleImageChange(image)}
-          >
-            <img
-              src={image}
-              alt={name}
-              sizes="100vw"
-              className="h-auto w-auto object-contain"
-            />
-          </button>
-        ))}
+      <div className="flex w-full max-w-3xl items-center gap-2">
+        <button
+          className={`mt-4 flex h-max items-center justify-center rounded-full bg-primary p-1 px-[6px] ${isLeftDisabled && "bg-primary/10"}`}
+          onClick={scrollLeft}
+          disabled={isLeftDisabled}
+        >
+          <img
+            src="./icons/chevron-left.svg"
+            alt={name}
+            sizes="100vw"
+            className="size-8 object-contain"
+          />
+        </button>
+        <div
+          ref={scrollContainerRef}
+          className="md:[&::-webkit-scrollbar-thumb]:bg-accent mt-8 flex w-full gap-4 overflow-x-auto md:overflow-x-scroll md:[&::-webkit-scrollbar-thumb]:rounded-lg [&::-webkit-scrollbar]:invisible"
+        >
+          {imageUrls.map((image) => (
+            <button
+              key={image}
+              className="flex h-[100px] max-h-[100px] w-[190px] min-w-[190px] items-center justify-center"
+              onClick={() => handleImageChange(image)}
+            >
+              <img
+                src={image}
+                alt={name}
+                sizes="100vw"
+                className="h-auto w-auto object-contain"
+              />
+            </button>
+          ))}
+        </div>
+        <button
+          className={`mt-4 flex h-max items-center justify-center rounded-full bg-primary p-1 px-[6px] ${isRightDisabled && "bg-primary/10"}`}
+          onClick={scrollRight}
+          disabled={isRightDisabled}
+        >
+          <img
+            src="./icons/chevron-right.svg"
+            alt={name}
+            sizes="100vw"
+            className="size-8 object-contain"
+          />
+        </button>
       </div>
     </div>
   );
