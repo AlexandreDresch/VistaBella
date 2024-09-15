@@ -464,3 +464,38 @@ export const realEstateMockData: RealEstate[] = [
     },
   },
 ];
+
+export const otherServices = [
+  {
+    id: 1,
+    title: "Projetos",
+    image:
+      "https://images.unsplash.com/photo-1591484222677-eb91797e696f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 2,
+    title: "Ofertas Imobiliárias",
+    image:
+      "https://images.unsplash.com/photo-1672082497059-1e6c0209eeeb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 3,
+    title: "Investimentos",
+    image:
+      "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Du",
+  },
+  {
+    id: 4,
+    title: "Hipoteca",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+export const broker = {
+  name: "John Smith",
+  phone: "555599999999",
+  email: "johnsmith@example.com",
+  image:
+    "https://img.freepik.com/fotos-gratis/homem-retrato-rindo_23-2148859448.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1725580800&semt=ais_hybrid",
+};
