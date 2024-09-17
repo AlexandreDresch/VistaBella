@@ -9,9 +9,10 @@ import {
   otherServices,
   realEstateMockData,
 } from "../constants/real-state";
-import { formatToBRL, translatePropertyType } from "../utils/utils";
+import { translatePropertyType } from "../utils/utils";
 import { icons } from "../constants/icons";
 import { useEffect } from "react";
+import AnimatedCounter from "../components/animated-counter";
 
 export default function EstateDetails() {
   const { id } = useParams();
@@ -65,10 +66,11 @@ export default function EstateDetails() {
                     {estateData.type === "rent" ? "Aluguel " : "Preço "}partindo
                     de:
                   </p>
-                  <p className="font-bold">
-                    {formatToBRL(estateData.price)}
-                    {estateData.type === "rent" && "/mês"}
-                  </p>
+
+                  <div className="flex gap-1">
+                    <AnimatedCounter amount={estateData.price} />
+                    <span>{estateData.type === "rent" && "/mês"}</span>
+                  </div>
                 </div>
 
                 <button className="rounded-md bg-primary px-2 font-bold text-white transition-opacity hover:bg-primary/95 sm:px-4">
@@ -112,7 +114,7 @@ export default function EstateDetails() {
               />
             </section>
 
-            <section className="max-w-2xl w-full space-y-5">
+            <section className="w-full max-w-2xl space-y-5">
               <h3 className="font-merriweather text-lg font-bold">
                 Você pode se interessar em
               </h3>
