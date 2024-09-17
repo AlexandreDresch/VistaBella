@@ -3,7 +3,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 1,
     title: "Apartamento Elegante com Vista para o Rio em São Paulo",
     price: 3200000,
-    location: "São Paulo, Brasil",
+    location: "São Paulo",
     images: [
       "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1663126953248-3b3bd25402e2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -47,7 +47,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 2,
     title: "Cobertura Moderna no Rio de Janeiro",
     price: 4500000,
-    location: "Rio de Janeiro, Brasil",
+    location: "Rio de Janeiro",
     images: [
       "https://plus.unsplash.com/premium_photo-1674676471417-07f613528a94?q=80&w=2045&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1674676471943-83c8b5b7e43c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -90,7 +90,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 3,
     title: "Villa de Luxo na Praia de Trancoso",
     price: 9500000,
-    location: "Trancoso, Brasil",
+    location: "Trancoso",
     images: [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1661906854568-8964f58ed859?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -133,7 +133,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 4,
     title: "Apartamento Moderno no Centro de Curitiba",
     price: 550000,
-    location: "Curitiba, Brasil",
+    location: "Curitiba",
     images: [
       "https://plus.unsplash.com/premium_photo-1683769252575-e986af039184?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1683769250375-1bdf0ec9d80f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -173,7 +173,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 5,
     title: "Casa de Campo para Aluguel em Campos do Jordão",
     price: 12000,
-    location: "Campos do Jordão, Brasil",
+    location: "Campos do Jordão",
     images: [
       "https://plus.unsplash.com/premium_photo-1673014202349-38687dd47f94?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1673014201923-0e06d44d7f0f?q=80&w=2038&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -215,7 +215,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 6,
     title: "Apartamento para Aluguel com Vista para o Mar em Florianópolis",
     price: 8500,
-    location: "Florianópolis, Brasil",
+    location: "Florianópolis",
     images: [
       "https://plus.unsplash.com/premium_photo-1680100255906-09ffdc2eeaaf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1680100256127-e73d3f1f3376?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -256,7 +256,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 7,
     title: "Casa Luxuosa em Condomínio Fechado em Alphaville",
     price: 6500000,
-    location: "Barueri, Brasil",
+    location: "Barueri",
     images: [
       "https://images.unsplash.com/photo-1649083048337-4aeb6dda80bb?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1649083048428-3d8ed23a3ce0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -299,7 +299,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 8,
     title: "Cobertura Duplex na Zona Sul do Rio de Janeiro",
     price: 2200000,
-    location: "Rio de Janeiro, Brasil",
+    location: "Rio de Janeiro",
     images: [
       "https://plus.unsplash.com/premium_photo-1661872779873-5ce7b9235a0e?q=80&w=2103&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1661872770044-5b5155c69ea5?q=80&w=2103&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -340,7 +340,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 9,
     title: "Casa de Praia para Aluguel em Trancoso",
     price: 18000,
-    location: "Trancoso, Brasil",
+    location: "Trancoso",
     images: [
       "https://plus.unsplash.com/premium_photo-1661911933283-b2ca02ef468b?q=80&w=2057&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1661963186894-40255c7308d6?q=80&w=2057&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -383,7 +383,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 10,
     title: "Loft Moderno para Aluguel em São Paulo",
     price: 9500,
-    location: "São Paulo, Brasil",
+    location: "São Paulo",
     images: [
       "https://plus.unsplash.com/premium_photo-1661963540233-94097ba21f27?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://plus.unsplash.com/premium_photo-1661962895825-7d46f2274c16?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -423,7 +423,7 @@ export const realEstateMockData: RealEstate[] = [
     id: 11,
     title: "Fazenda Exclusiva à Venda em Itu",
     price: 9500000,
-    location: "Itu, Brasil",
+    location: "Itu",
     images: [
       "https://images.unsplash.com/photo-1509708628710-de4a87823c2c?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1506140006527-5ca84877d824?q=80&w=2099&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
