@@ -42,3 +42,8 @@ export function formatToBRL(amount: number): string {
     currency: "BRL",
   }).format(amount);
 }
+
+export const nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s+[a-zA-ZÀ-ÖØ-öø-ÿ]+)+$/;
+
+export const phoneRegex =
+  /^\+?\d{1,3}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{3,4}[-.\s]?\d{3,4}$/;

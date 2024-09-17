@@ -11,12 +11,14 @@ import {
 } from "../constants/real-state";
 import { translatePropertyType } from "../utils/utils";
 import { icons } from "../constants/icons";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import AnimatedCounter from "../components/animated-counter";
+import ContactForm from "../components/forms/contact-form";
 
 export default function EstateDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const contactFormRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!id || !realEstateMockData[Number(id)]) {
@@ -29,6 +31,10 @@ export default function EstateDetails() {
   if (!estateData) {
     return null;
   }
+
+  const scrollToContactForm = () => {
+    contactFormRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -73,7 +79,10 @@ export default function EstateDetails() {
                   </div>
                 </div>
 
-                <button className="rounded-md bg-primary px-2 font-bold text-white transition-opacity hover:bg-primary/95 sm:px-4">
+                <button
+                  onClick={scrollToContactForm}
+                  className="rounded-md bg-primary px-2 font-bold text-white transition-opacity hover:bg-primary/95 sm:px-4"
+                >
                   <span>Tenho interesse</span>
                 </button>
               </div>
@@ -139,71 +148,13 @@ export default function EstateDetails() {
             </section>
           </div>
         </main>
-        <aside className="hidden h-max w-[352px] flex-col space-y-10 pt-16 lg:flex">
-          <form action="" className="space-y-2 rounded-sm bg-secondary p-4">
-            <h3 className="font-merriweather text-xl font-bold">
-              Entre em contato
-            </h3>
-
-            <div className="font-opensans">
-              <label htmlFor="name">Nome completo</label>
-              <input
-                className="w-full rounded-sm border px-3 py-2"
-                id="name"
-                type="text"
-                placeholder="Seu nome completo"
-              />
-            </div>
-
-            <div className="font-opensans">
-              <label htmlFor="name">Número de telefone</label>
-              <input
-                className="w-full rounded-sm border px-3 py-2"
-                id="phone"
-                type="number"
-                placeholder="Número de telefone"
-              />
-            </div>
-
-            <div className="font-opensans">
-              <label htmlFor="email">E-mail</label>
-              <input
-                className="w-full rounded-sm border px-3 py-2"
-                id="email"
-                type="email"
-                placeholder="Seu e-mail"
-              />
-            </div>
-
-            <div className="font-opensans">
-              <label htmlFor="message">Sua Mensagem</label>
-              <textarea
-                className="h-72 w-full rounded-sm border px-3 py-2"
-                id="message"
-                placeholder="Sua mensagem"
-              />
-            </div>
-
-            <div className="flex">
-              <label className="flex items-start">
-                <input className="mr-2 mt-1" type="checkbox" />
-                <p className="w-full text-sm">
-                  Eu concordo com o processamento de{" "}
-                  <span className="cursor-pointer text-blue-700 underline">
-                    dados pessoais
-                  </span>
-                  .
-                </p>
-              </label>
-            </div>
-
-            <button
-              className="h-12 w-full rounded border-2 border-solid border-primary font-bold text-primary"
-              type="button"
-            >
-              Sign Up
-            </button>
-          </form>
+        <aside
+          className="hidden h-max w-[352px] flex-col space-y-10 pt-16 lg:flex"
+          ref={contactFormRef}
+        >
+          <div className="rounded-sm bg-secondary p-4">
+            <ContactForm />
+          </div>
 
           <div className="flex w-[352px] flex-col items-center space-y-2 rounded-sm bg-secondary p-4">
             <img
