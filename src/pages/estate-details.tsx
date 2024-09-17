@@ -1,3 +1,4 @@
+import { useNavigate, useParams } from "react-router-dom";
 import Badge from "../components/badge";
 import ContentContainer from "../components/content-container";
 import Header from "../components/header";
@@ -9,9 +10,25 @@ import {
   realEstateMockData,
 } from "../constants/real-state";
 import { formatToBRL, translatePropertyType } from "../utils/utils";
+import { icons } from "../constants/icons";
+import { useEffect } from "react";
 
 export default function EstateDetails() {
-  const estateData: RealEstate = realEstateMockData[0];
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!id || !realEstateMockData[Number(id)]) {
+      navigate("/");
+    }
+  }, [id, navigate]);
+
+  const estateData: RealEstate | undefined = realEstateMockData[Number(id)];
+
+  if (!estateData) {
+    return null;
+  }
+
   return (
     <>
       <Header />
@@ -27,17 +44,17 @@ export default function EstateDetails() {
             <section className="w-full max-w-2xl space-y-5 lg:space-y-10">
               <div className="flex w-full justify-between">
                 <Badge
-                  icon="./icons/company.svg"
+                  icon={icons.company}
                   description={translatePropertyType(estateData.propertyType)}
                 />
 
                 <Badge
-                  icon="./icons/dimensions.svg"
+                  icon={icons.dimensions}
                   description={`${estateData.size}m²`}
                 />
 
                 <Badge
-                  icon="./icons/pin.svg"
+                  icon={icons.location}
                   description={estateData.location}
                 />
               </div>
@@ -95,12 +112,12 @@ export default function EstateDetails() {
               />
             </section>
 
-            <section className="max-w-2xl space-y-5">
+            <section className="max-w-2xl w-full space-y-5">
               <h3 className="font-merriweather text-lg font-bold">
                 Você pode se interessar em
               </h3>
 
-              <div className="md:[&::-webkit-scrollbar-thumb]:bg-accent flex h-full w-full max-w-3xl gap-4 overflow-x-auto py-2 md:overflow-x-scroll md:[&::-webkit-scrollbar-thumb]:rounded-lg [&::-webkit-scrollbar]:invisible">
+              <div className="flex h-max w-full max-w-3xl gap-4 overflow-x-auto py-2 md:overflow-x-scroll md:[&::-webkit-scrollbar-thumb]:rounded-lg md:[&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar]:invisible">
                 {otherServices.map((service) => (
                   <button
                     key={service.id}

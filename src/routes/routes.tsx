@@ -7,7 +7,7 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route element={<Home />} path="/" />
-        <Route element={<EstateDetails />} path="/details" />
+        <Route element={<EstateDetails />} path="/details/:id" />
       </Switch>
     </BrowserRouter>
   );
