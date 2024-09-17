@@ -11,20 +11,37 @@ import {
 } from "../constants/real-state";
 import { translatePropertyType } from "../utils/utils";
 import { icons } from "../constants/icons";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnimatedCounter from "../components/animated-counter";
 import ContactForm from "../components/forms/contact-form";
+import ContactModal from "../components/modals/contact-modal";
 
 export default function EstateDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const contactFormRef = useRef<HTMLDivElement>(null);
+  const [isModalButtonVisible, setModalButtonVisible] = useState(false);
 
   useEffect(() => {
     if (!id || !realEstateMockData[Number(id)]) {
       navigate("/");
     }
   }, [id, navigate]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.matchMedia("(max-width: 1024px)").matches) {
+        setModalButtonVisible(true);
+      } else {
+        setModalButtonVisible(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const estateData: RealEstate | undefined = realEstateMockData[Number(id)];
 
@@ -79,12 +96,16 @@ export default function EstateDetails() {
                   </div>
                 </div>
 
-                <button
-                  onClick={scrollToContactForm}
-                  className="rounded-md bg-primary px-2 font-bold text-white transition-opacity hover:bg-primary/95 sm:px-4"
-                >
-                  <span>Tenho interesse</span>
-                </button>
+                {isModalButtonVisible ? (
+                  <ContactModal />
+                ) : (
+                  <button
+                    onClick={scrollToContactForm}
+                    className="rounded-md bg-primary px-2 font-bold text-white transition-opacity hover:bg-primary/95 sm:px-4"
+                  >
+                    <span>Tenho interesse</span>
+                  </button>
+                )}
               </div>
 
               <ContentContainer content={estateData.briefDescription} />
