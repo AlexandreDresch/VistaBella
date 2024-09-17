@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+import { icons } from "../constants/icons";
+
 interface ImageSliderProps {
   name: string;
   imageUrls: string[];
@@ -42,13 +44,22 @@ export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
     const scrollContainer = scrollContainerRef.current;
 
     if (scrollContainer) {
-      scrollContainer.addEventListener("scroll", handleScroll);
+      const { scrollWidth, clientWidth } = scrollContainer;
 
-      return () => {
-        scrollContainer.removeEventListener("scroll", handleScroll);
-      };
+      if (scrollWidth <= clientWidth) {
+        setIsLeftDisabled(true);
+        setIsRightDisabled(true);
+      } else {
+        scrollContainer.addEventListener("scroll", handleScroll);
+
+        handleScroll();
+
+        return () => {
+          scrollContainer.removeEventListener("scroll", handleScroll);
+        };
+      }
     }
-  }, []);
+  }, [imageUrls]);
 
   return (
     <div className="flex w-full flex-col">
@@ -67,7 +78,7 @@ export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
           disabled={isLeftDisabled}
         >
           <img
-            src="./icons/chevron-left.svg"
+            src={icons.left}
             alt={name}
             sizes="100vw"
             className="size-8 object-contain"
@@ -98,7 +109,7 @@ export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
           disabled={isRightDisabled}
         >
           <img
-            src="./icons/chevron-right.svg"
+            src={icons.right}
             alt={name}
             sizes="100vw"
             className="size-8 object-contain"
