@@ -7,12 +7,12 @@ function Header() {
 
   return (
     <div>
-      <header className="flex items-center justify-between px-8 py-6 text-sky-950 md:px-32">
+      <header className="flex items-center justify-between px-6 py-4 text-sky-950 md:px-32">
         <a href="#">
           <img
             src={logo}
             alt="brand logo"
-            className="w-25 transition-all hover:scale-105"
+            className="w-14 transition-all hover:scale-105"
           />
         </a>
 
@@ -67,7 +67,7 @@ function Header() {
             References
           </li>
 
-          <li className="w-full cursor-pointer list-none bg-sky-900 p-3 text-center font-semibold text-white transition-all hover:opacity-80 md:hidden">
+          <li className="w-full cursor-pointer list-none bg-sky-900 p-2 text-center font-semibold text-white transition-all hover:opacity-80 md:hidden">
             Contact Us
           </li>
         </div>
