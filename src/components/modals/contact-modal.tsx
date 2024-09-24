@@ -1,44 +1,70 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactForm from "../forms/contact-form";
+import Button from "../button";
+
+function CloseButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      className="absolute right-6 top-6 z-50 font-opensans text-base font-bold text-red-500 transition-all duration-150 ease-linear focus:outline-none"
+      type="button"
+      onClick={onClick}
+      aria-label="Close modal"
+    >
+      X
+    </button>
+  );
+}
 
 export default function ContactModal() {
   const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+
+      const handleEsc = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          setShowModal(false);
+        }
+      };
+
+      document.addEventListener("keydown", handleEsc);
+
+      return () => {
+        document.body.style.overflow = "auto";
+        document.removeEventListener("keydown", handleEsc);
+      };
+    }
+  }, [showModal]);
+
   return (
     <>
-      <button
-        className="rounded-md bg-primary px-2 font-bold text-white transition-opacity hover:bg-primary/95 sm:px-4"
+      <Button
         type="button"
+        variant="primary"
         onClick={() => setShowModal(true)}
       >
         Tenho interesse
-      </button>
-      {showModal ? (
-        <>
-          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none">
-            <div className="relative mx-auto my-6 w-auto max-w-3xl">
-              <div className="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
-                <div className="relative flex-auto p-6">
-                  <ContactForm />
-                </div>
+      </Button>
 
-                <div className="flex items-center justify-end rounded-b border-t border-solid border-gray-200 p-3">
-                  <button
-                    className="background-transparent mb-1 mr-1 px-6 py-2 text-sm font-bold uppercase text-red-500 outline-none transition-all duration-150 ease-linear focus:outline-none"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Fechar
-                  </button>
-                </div>
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-white/80 outline-none focus:outline-none"
+          aria-modal="true"
+          role="dialog"
+          aria-hidden={!showModal}
+        >
+          <div className="relative mx-auto my-6 w-auto max-w-3xl">
+            <div className="rounded-primary relative flex w-full flex-col border-0 bg-white shadow-lg outline-none focus:outline-none">
+              <CloseButton onClick={() => setShowModal(false)} />
+
+              <div className="relative flex-auto p-6">
+                <ContactForm />
               </div>
             </div>
           </div>
-          <div
-            className="fixed inset-0 z-40 bg-black opacity-25"
-          ></div>
-        </>
-      ) : null}
+        </div>
+      )}
     </>
   );
 }
