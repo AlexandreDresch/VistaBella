@@ -46,7 +46,7 @@ export default function Map({ position, title, details }: MapProps) {
       scrollWheelZoom={true}
       zoomControl={true}
       style={{ height: "450px", width: "100%" }}
-      className="z-0 h-full w-full overflow-hidden rounded-md"
+      className="z-0 h-full w-full overflow-hidden rounded-primary"
     >
       <UpdateMapView />
       <TileLayer

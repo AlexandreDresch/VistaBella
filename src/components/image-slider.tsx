@@ -67,7 +67,7 @@ export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
         <img
           src={selectedImage}
           alt={name}
-          className="h-96 w-full object-cover"
+          className="h-96 w-full rounded-primary object-cover"
         />
       </div>
 
@@ -98,7 +98,7 @@ export default function ImageSlider({ imageUrls, name }: ImageSliderProps) {
                 src={image}
                 alt={name}
                 sizes="100vw"
-                className="h-auto w-auto object-contain"
+                className="h-auto max-h-[100px] rounded-primary w-full object-fill"
               />
             </button>
           ))}

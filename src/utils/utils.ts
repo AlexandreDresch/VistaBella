@@ -1,3 +1,27 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+/**
+ * Merges and combines class names using `clsx` and `twMerge`.
+ *
+ * This function takes any number of class values (strings, arrays, objects, etc.),
+ * processes them with `clsx` to conditionally combine them, and then merges Tailwind CSS
+ * classes using `twMerge` to handle class conflicts (e.g., resolving multiple Tailwind
+ * classes like `px-4 px-2` by keeping the latest valid class).
+ *
+ * @param inputs - A list of class values to be combined. These can be strings, arrays, or objects.
+ * @returns A single string containing the merged class names.
+ *
+ * @example
+ * ```typescript
+ * const classNames = cn("bg-blue-500", { "text-white": true }, "px-4", "px-2");
+ * console.log(classNames); // Output: "bg-blue-500 text-white px-2"
+ * ```
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 /**
  * Translates the property type from English to Portuguese.
  *
