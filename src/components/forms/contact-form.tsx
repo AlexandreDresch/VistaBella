@@ -5,6 +5,7 @@ import { z } from "zod";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { E164Number } from "libphonenumber-js/core";
+import Button from "../button";
 
 export default function ContactForm() {
   const {
@@ -39,7 +40,7 @@ export default function ContactForm() {
       <div className="font-opensans">
         <label htmlFor="name">Nome completo</label>
         <input
-          className="w-full rounded-sm border px-3 py-2"
+          className="border-tertiary rounded-primary w-full border px-3 py-2 active:border-primary"
           id="name"
           type="text"
           placeholder="Seu nome completo"
@@ -62,7 +63,7 @@ export default function ContactForm() {
           withCountryCallingCode
           value={phoneValue as E164Number | undefined}
           onChange={(value) => setValue("phone", value || "")}
-          className="w-full rounded-sm border px-2 py-2"
+          className="border-tertiary rounded-primary w-full border px-2 py-2 active:border-primary"
         />
         {errors.phone && (
           <p className="text-sm font-semibold text-red-500">
@@ -74,7 +75,7 @@ export default function ContactForm() {
       <div className="font-opensans">
         <label htmlFor="email">E-mail</label>
         <input
-          className="w-full rounded-sm border px-3 py-2"
+          className="border-tertiary rounded-primary w-full border px-3 py-2 active:border-primary"
           id="email"
           type="email"
           placeholder="Seu e-mail"
@@ -90,7 +91,7 @@ export default function ContactForm() {
       <div className="font-opensans">
         <label htmlFor="message">Sua Mensagem</label>
         <textarea
-          className="h-72 w-full rounded-sm border px-3 py-2"
+          className="border-tertiary rounded-primary h-72 w-full border px-3 py-2 active:border-primary"
           id="message"
           placeholder="Sua mensagem"
           {...register("message")}
@@ -124,12 +125,14 @@ export default function ContactForm() {
         )}
       </div>
 
-      <button
-        className="h-12 w-full rounded border-2 border-solid border-primary font-bold text-primary"
+      <Button
+        className="h-12 w-full"
+        variant="primary"
+        disabled={Object.values(errors).some((error) => error)}
         type="submit"
       >
         Enviar Mensagem
-      </button>
+      </Button>
     </form>
   );
 }
