@@ -5,7 +5,7 @@ import phoneIcon from "../assets/footer/phoneIcon.png";
 
 function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 flex h-20 w-screen items-center justify-between bg-sky-900 px-8 py-6 md:px-32">
+    <footer className="bottom-0 left-0 flex h-20 w-screen items-center justify-between bg-sky-900 px-8 py-6 md:px-32">
       <img
         src={logoFooter}
         className="w-24 transition-all hover:scale-105"

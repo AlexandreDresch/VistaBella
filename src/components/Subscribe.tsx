@@ -3,7 +3,7 @@ import newsletterIcon from "../assets/newsletter/newsletterIcon.png";
 function Subscribe() {
   return (
     <div
-      className="fixed bottom-20 flex w-full items-center justify-center gap-8 bg-gray-300 p-4 font-bold md:px-32"
+      className="m-0 flex w-full items-center justify-center gap-8 bg-gray-300 p-4 font-bold md:px-32"
       style={{ transition: "transform 0.3s ease" }}
     >
       <div className="absolute left-0 z-50 flex w-full transform flex-col items-center transition-transform">
@@ -29,7 +29,7 @@ function Subscribe() {
       <img
         src={newsletterIcon}
         alt="newsletter icon"
-        className="w-100 z-0"
+        className="w-100 md:w-200 z-0"
       ></img>
     </div>
   );
