@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Subscribe from "./components/Subscribe";
 import Banner from "./components/Banner";
 import AboutUs from "./components/AboutUs";
+import OurTeam from "./components/OurTeam";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Banner />
       <AboutUs />
+      <OurTeam />
       <Routes />
       <Subscribe />
       <Footer />
