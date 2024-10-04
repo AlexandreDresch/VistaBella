@@ -5,13 +5,13 @@ import phoneIcon from "../assets/footer/phoneIcon.png";
 
 function Footer() {
   return (
-    <footer className="bottom-0 left-0 flex h-20 w-screen items-center justify-between bg-sky-900 px-8 py-6 md:px-32">
+    <footer className="bottom-0 left-0 flex flex-col items-center justify-between gap-2 bg-sky-900 px-8 py-6 xl:flex-row">
       <img
         src={logoFooter}
-        className="w-24 transition-all hover:scale-105"
+        className="w-32 transition-all hover:scale-105"
       ></img>
 
-      <div className="relative items-center justify-center gap-4 md:flex">
+      <div className="flex flex-col items-center justify-center xl:flex-row">
         <a
           href="#"
           className="flex gap-1 rounded-md bg-sky-900 p-3 text-sm font-light text-white transition-all hover:scale-105 hover:opacity-70"
@@ -38,18 +38,24 @@ function Footer() {
       </div>
 
       <div className="flex gap-4">
-        <a href="#" className="text-white transition-all hover:scale-105">
+        <a
+          href="#"
+          className="p-1 text-white transition-all duration-500 hover:scale-125 hover:rounded-full hover:bg-blue-700"
+        >
           <i className="bx bxl-facebook text-2xl"></i>
         </a>
 
         <a
           href="#"
-          className="pd-1 rounded-full text-white transition-all hover:scale-105"
+          className="p-1 text-white transition-all duration-500 hover:scale-125 hover:rounded-full hover:bg-pink-600"
         >
           <i className="bx bxl-instagram text-2xl"></i>
         </a>
 
-        <a href="#" className="text-white transition-all hover:scale-105">
+        <a
+          href="#"
+          className="p-1 text-white transition-all duration-500 hover:scale-125 hover:rounded-full hover:bg-blue-500"
+        >
           <i className="bx bxl-twitter text-2xl"></i>
         </a>
       </div>

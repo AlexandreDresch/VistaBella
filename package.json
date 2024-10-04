@@ -11,12 +11,13 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.10",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
-    "sort-by": "^1.2.0",
+    "sort-by": "^0.0.2",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
