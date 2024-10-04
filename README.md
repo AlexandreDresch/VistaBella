@@ -1,50 +1,101 @@
-# React + TypeScript + Vite
+# Vistabella
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vistabella is a real estate web application designed to streamline property listings, searches, and inquiries. The project is powered by modern technologies like React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Map**: Integration with Leaflet for property locations.
+- **Responsive Design**: Tailwind CSS ensures the app is mobile-friendly.
+- **Form Management**: Uses react-hook-form and Zod for validation.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React for UI components.
+- TypeScript for type safety.
+- React-Router for navigation.
+- Vite as the build tool.
+- Tailwind CSS for styling.
+- Leaflet and React-Leaflet for maps.
+- Zod for schema validation.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js and npm (if running locally).
+- Docker installed (if running with Docker).
+
+## Running the Application
+
+You can run this application either with Docker or locally on your machine.
+
+### Option 1: Running with Docker
+
+1. Clone the repository:
+
+```bash
+  https://github.com/AlexandreDresch/VistaBella.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navigate to the project directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+  cd VistaBella
 ```
+
+3. Build and start the Docker containers:
+
+```bash
+  docker-compose up --build
+```
+
+4. Open your browser and navigate to:
+
+```bash
+  http://localhost:5173
+```
+
+5. To stop the Docker containers:
+
+```bash
+  docker-compose down
+```
+
+### Option 2: Running Locally (Without Docker)
+
+1. Clone the repository:
+
+```bash
+  https://github.com/AlexandreDresch/VistaBella.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+  cd VistaBella
+```
+
+3. Install dependencies:
+
+```bash
+  npm install
+```
+
+4. Start the development server:
+
+```bash
+  npm run dev
+```
+
+5. Open your browser and navigate to:
+
+```bash
+  http://localhost:5173
+```
+
+## Scripts
+
+- **dev**: Starts the Vite development server.
+- **build**: Builds the project using TypeScript and Vite.
+- **lint**: Runs ESLint to check for code quality.
+- **preview**: Runs a Vite preview of the built app.
